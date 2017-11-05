@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 4, 2017 6:49:42 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entities.SyUsersLogs" table="SyUsersLogs" schema="dbo" catalog="ProjectManagement" optimistic-lock="version">
+        <id name="userLogsId" type="string">
+            <column name="UserLogsId" length="36" />
+            <generator class="assigned" />
+        </id>
+        <property name="userId" type="string">
+            <column name="UserId" length="100" not-null="true" />
+        </property>
+        <property name="usrFullName" type="string">
+            <column name="UsrFullName" length="100" not-null="true" />
+        </property>
+        <property name="loginFrom" type="string">
+            <column name="LoginFrom" length="100" not-null="true" />
+        </property>
+        <property name="loginTo" type="string">
+            <column name="LoginTo" length="100" not-null="true" />
+        </property>
+        <property name="queryString" type="string">
+            <column name="QueryString" not-null="true" />
+        </property>
+        <property name="pageTitle" type="string">
+            <column name="PageTitle" not-null="true" />
+        </property>
+        <property name="userAgent" type="string">
+            <column name="UserAgent" not-null="true" />
+        </property>
+        <property name="createdDate" type="timestamp">
+            <column name="CreatedDate" length="23" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

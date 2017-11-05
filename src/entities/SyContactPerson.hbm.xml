@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 4, 2017 6:49:42 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entities.SyContactPerson" table="SyContactPerson" schema="dbo" catalog="ProjectManagement" optimistic-lock="version">
+        <id name="contactPersonId" type="string">
+            <column name="ContactPersonId" length="20" />
+            <generator class="assigned" />
+        </id>
+        <property name="companyId" type="string">
+            <column name="CompanyId" length="15" not-null="true" />
+        </property>
+        <property name="contactPersonName" type="string">
+            <column name="ContactPersonName" length="100" />
+        </property>
+        <property name="contactTypeId" type="int">
+            <column name="ContactTypeId" not-null="true" />
+        </property>
+        <property name="contactPersonAddress" type="string">
+            <column name="ContactPersonAddress" length="250" />
+        </property>
+        <property name="countryId" type="string">
+            <column name="CountryId" length="6" />
+        </property>
+        <property name="stateId" type="string">
+            <column name="StateId" length="10" />
+        </property>
+        <property name="cityId" type="string">
+            <column name="CityId" length="16" />
+        </property>
+        <property name="contactPersonZip" type="string">
+            <column name="ContactPersonZip" length="5" />
+        </property>
+        <property name="contactWorkPhone" type="string">
+            <column name="ContactWorkPhone" length="200" />
+        </property>
+        <property name="contactHomePhone" type="string">
+            <column name="ContactHomePhone" length="200" />
+        </property>
+        <property name="contactCellPhone" type="string">
+            <column name="ContactCellPhone" length="200" />
+        </property>
+        <property name="contactPersonEmail" type="string">
+            <column name="ContactPersonEmail" length="100" />
+        </property>
+        <property name="contactPersonPass" type="string">
+            <column name="ContactPersonPass" length="200" />
+        </property>
+        <property name="isLogin" type="java.lang.Boolean">
+            <column name="IsLogin" />
+        </property>
+        <property name="isDelete" type="java.lang.Boolean">
+            <column name="IsDelete" />
+        </property>
+        <property name="isConfirm" type="java.lang.Boolean">
+            <column name="IsConfirm" />
+        </property>
+        <property name="isReset" type="java.lang.Boolean">
+            <column name="IsReset" />
+        </property>
+        <property name="confirmCode" type="string">
+            <column name="ConfirmCode" length="200" />
+        </property>
+        <property name="lastDateLogin" type="timestamp">
+            <column name="LastDateLogin" length="23" />
+        </property>
+        <property name="userPrefix" type="string">
+            <column name="UserPrefix" length="3" />
+        </property>
+        <property name="createdDate" type="timestamp">
+            <column name="CreatedDate" length="23" />
+        </property>
+        <property name="createdBy" type="string">
+            <column name="CreatedBy" length="20" />
+        </property>
+        <property name="modifiedDate" type="timestamp">
+            <column name="ModifiedDate" length="23" />
+        </property>
+        <property name="modifiedBy" type="string">
+            <column name="ModifiedBy" length="20" />
+        </property>
+    </class>
+</hibernate-mapping>

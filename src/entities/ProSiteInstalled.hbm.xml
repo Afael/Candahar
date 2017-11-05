@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 4, 2017 6:49:42 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entities.ProSiteInstalled" table="ProSiteInstalled" schema="dbo" catalog="ProjectManagement" optimistic-lock="version">
+        <id name="siteInstalledId" type="string">
+            <column name="SiteInstalledId" length="40" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="proSiteProgress" class="entities.ProSiteProgress" fetch="select">
+            <column name="SiteProgressId" length="40" not-null="true" />
+        </many-to-one>
+        <property name="slboqid" type="string">
+            <column name="SLBOQId" length="36" not-null="true" />
+        </property>
+        <property name="mainFormId" type="string">
+            <column name="MainFormId" length="40" />
+        </property>
+        <property name="compId" type="string">
+            <column name="CompId" length="40" />
+        </property>
+        <property name="installedDate" type="timestamp">
+            <column name="InstalledDate" length="23" />
+        </property>
+        <property name="installedBy" type="string">
+            <column name="InstalledBy" length="100" />
+        </property>
+        <property name="mobilePhone" type="string">
+            <column name="MobilePhone" length="40" />
+        </property>
+        <property name="installedReason" type="string">
+            <column name="InstalledReason" length="250" />
+        </property>
+        <property name="atpdate" type="timestamp">
+            <column name="ATPDate" length="23" />
+        </property>
+        <property name="atpreason" type="string">
+            <column name="ATPReason" length="250" />
+        </property>
+        <property name="bautSubmit" type="timestamp">
+            <column name="BautSubmit" length="23" />
+        </property>
+        <property name="bautNo" type="string">
+            <column name="BautNo" length="100" />
+        </property>
+        <property name="bautDate" type="timestamp">
+            <column name="BautDate" length="23" />
+        </property>
+        <property name="bautReason" type="string">
+            <column name="BautReason" length="250" />
+        </property>
+        <property name="crno" type="string">
+            <column name="CRNo" length="100" />
+        </property>
+        <property name="crdate" type="timestamp">
+            <column name="CRDate" length="23" />
+        </property>
+        <property name="cono" type="string">
+            <column name="CONo" length="100" />
+        </property>
+        <property name="codate" type="timestamp">
+            <column name="CODate" length="23" />
+        </property>
+        <property name="codateApproved" type="timestamp">
+            <column name="CODateApproved" length="23" />
+        </property>
+        <property name="coapprovedBy" type="string">
+            <column name="COApprovedBy" length="100" />
+        </property>
+        <property name="coapprovedTitle" type="string">
+            <column name="COApprovedTitle" length="100" />
+        </property>
+        <property name="bastNo" type="string">
+            <column name="BastNo" length="100" />
+        </property>
+        <property name="bastSubmitDate" type="timestamp">
+            <column name="BastSubmitDate" length="23" />
+        </property>
+        <property name="bastApprovalDate" type="timestamp">
+            <column name="BastApprovalDate" length="23" />
+        </property>
+        <property name="invoiceNo" type="string">
+            <column name="InvoiceNo" length="100" />
+        </property>
+        <property name="invoiceDate" type="timestamp">
+            <column name="InvoiceDate" length="23" />
+        </property>
+        <property name="invoiceSubmitDate" type="timestamp">
+            <column name="InvoiceSubmitDate" length="23" />
+        </property>
+        <property name="bapkNo" type="string">
+            <column name="BapkNo" length="100" />
+        </property>
+        <property name="bapkDate" type="timestamp">
+            <column name="BapkDate" length="23" />
+        </property>
+        <property name="isLockInstalled" type="java.lang.Boolean">
+            <column name="IsLockInstalled" />
+        </property>
+        <property name="isLockAtp" type="java.lang.Boolean">
+            <column name="IsLockATP" />
+        </property>
+        <property name="isLockBaut" type="java.lang.Boolean">
+            <column name="IsLockBaut" />
+        </property>
+        <property name="isLockCr" type="java.lang.Boolean">
+            <column name="IsLockCr" />
+        </property>
+        <property name="isLockCo" type="java.lang.Boolean">
+            <column name="IsLockCo" />
+        </property>
+        <property name="isLockBast" type="java.lang.Boolean">
+            <column name="IsLockBast" />
+        </property>
+        <property name="isLockInvoice" type="java.lang.Boolean">
+            <column name="IsLockInvoice" />
+        </property>
+        <property name="isExists" type="java.lang.Boolean">
+            <column name="IsExists" />
+        </property>
+        <set name="proSitePrices" table="ProSitePrice" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SiteInstalledId" length="40" not-null="true" />
+            </key>
+            <one-to-many class="entities.ProSitePrice" />
+        </set>
+    </class>
+</hibernate-mapping>

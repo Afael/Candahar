@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 4, 2017 6:49:42 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entities.ReallocationDetail" table="ReallocationDetail" schema="dbo" catalog="ProjectManagement" optimistic-lock="version">
+        <id name="reallocationDetailId" type="string">
+            <column name="ReallocationDetailId" length="36" />
+            <generator class="assigned" />
+        </id>
+        <property name="reallocationId" type="string">
+            <column name="ReallocationId" length="30" not-null="true" />
+        </property>
+        <property name="deliveryNoteDetailId" type="string">
+            <column name="DeliveryNoteDetailId" length="36" />
+        </property>
+        <property name="deliveryNoteId" type="string">
+            <column name="DeliveryNoteId" length="30" />
+        </property>
+        <property name="materialSerialNumber" type="string">
+            <column name="MaterialSerialNumber" length="40" not-null="true" />
+        </property>
+        <property name="parentSerialNumber" type="string">
+            <column name="ParentSerialNumber" length="40" />
+        </property>
+        <property name="eventDate" type="timestamp">
+            <column name="EventDate" length="23" />
+        </property>
+        <property name="eventStatusId" type="string">
+            <column name="EventStatusId" length="40" />
+        </property>
+        <property name="planSlboqid" type="string">
+            <column name="PlanSLBOQId" length="36" not-null="true" />
+        </property>
+        <property name="planCustPo" type="string">
+            <column name="PlanCustPo" length="100" />
+        </property>
+        <property name="planRegionId" type="string">
+            <column name="PlanRegionId" length="40" />
+        </property>
+        <property name="planAreaId" type="string">
+            <column name="PlanAreaId" length="40" />
+        </property>
+        <property name="planSiteId" type="string">
+            <column name="PlanSiteId" length="40" />
+        </property>
+        <property name="planProjectId" type="string">
+            <column name="PlanProjectId" length="100" />
+        </property>
+        <property name="actualSlboqid" type="string">
+            <column name="ActualSLBOQId" length="36" not-null="true" />
+        </property>
+        <property name="actualCustPo" type="string">
+            <column name="ActualCustPo" length="100" />
+        </property>
+        <property name="actualRegionId" type="string">
+            <column name="ActualRegionId" length="40" />
+        </property>
+        <property name="actualAreaId" type="string">
+            <column name="ActualAreaId" length="40" />
+        </property>
+        <property name="actualSiteId" type="string">
+            <column name="ActualSiteId" length="40" />
+        </property>
+        <property name="actualProjectId" type="string">
+            <column name="ActualProjectId" length="100" />
+        </property>
+        <property name="createdBy" type="java.lang.Integer">
+            <column name="CreatedBy" />
+        </property>
+        <property name="createdDate" type="timestamp">
+            <column name="CreatedDate" length="23" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 4, 2017 6:49:42 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entities.LoMaterialType" table="LoMaterialType" schema="dbo" catalog="ProjectManagement" optimistic-lock="version">
+        <id name="materialTypeId" type="string">
+            <column name="MaterialTypeId" length="40" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="loMaterialGroup" class="entities.LoMaterialGroup" fetch="select">
+            <column name="MaterialGroupId" length="40" not-null="true" />
+        </many-to-one>
+        <property name="iscalaStockCode" type="string">
+            <column name="iScalaStockCode" length="10" />
+        </property>
+        <property name="materialTypeName" type="string">
+            <column name="MaterialTypeName" length="100" />
+        </property>
+        <property name="isRequiredEmbossed" type="java.lang.Boolean">
+            <column name="IsRequiredEmbossed" />
+        </property>
+        <property name="isExists" type="string">
+            <column name="IsExists" length="40" />
+        </property>
+        <property name="createdBy" type="string">
+            <column name="CreatedBy" length="20" />
+        </property>
+        <property name="createdDate" type="timestamp">
+            <column name="CreatedDate" length="23" />
+        </property>
+        <set name="loDeliveryRequests" table="LoDeliveryRequest" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MaterialTypeId" length="40" not-null="true" />
+            </key>
+            <one-to-many class="entities.LoDeliveryRequest" />
+        </set>
+        <set name="oldTransactionDetails" table="Old_TransactionDetail" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MaterialTypeId" length="40" not-null="true" />
+            </key>
+            <one-to-many class="entities.OldTransactionDetail" />
+        </set>
+        <set name="loDeliveryNotes" table="LoDeliveryNote" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MaterialTypeId" length="40" not-null="true" />
+            </key>
+            <one-to-many class="entities.LoDeliveryNote" />
+        </set>
+        <set name="loMaterialInbounds" table="LoMaterialInbound" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MaterialTypeId" length="40" not-null="true" />
+            </key>
+            <one-to-many class="entities.LoMaterialInbound" />
+        </set>
+    </class>
+</hibernate-mapping>

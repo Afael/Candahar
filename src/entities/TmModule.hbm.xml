@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 4, 2017 6:49:42 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entities.TmModule" table="TmModule" schema="dbo" catalog="ProjectManagement" optimistic-lock="version">
+        <id name="idModule" type="string">
+            <column name="id_module" length="5" />
+            <generator class="assigned" />
+        </id>
+        <property name="parentModule" type="string">
+            <column name="parent_module" length="5" />
+        </property>
+        <property name="moduleDesc" type="string">
+            <column name="module_Desc" length="50" not-null="true" />
+        </property>
+        <property name="moduleRef" type="string">
+            <column name="module_ref" length="10" not-null="true" />
+        </property>
+        <property name="url" type="string">
+            <column name="url" length="100" />
+        </property>
+        <property name="moduleUrl" type="string">
+            <column name="module_url" length="200" />
+        </property>
+        <property name="ordering" type="java.lang.Integer">
+            <column name="ordering" />
+        </property>
+        <property name="existence" type="char">
+            <column name="existence" length="1" not-null="true" />
+        </property>
+        <property name="moduleIcons" type="string">
+            <column name="module_icons" length="100" />
+        </property>
+        <property name="createdDate" type="timestamp">
+            <column name="created_date" length="16" />
+        </property>
+        <property name="createdBy" type="string">
+            <column name="created_by" length="10" />
+        </property>
+        <property name="modifyDate" type="timestamp">
+            <column name="modify_date" length="16" />
+        </property>
+        <property name="modifyBy" type="string">
+            <column name="modify_by" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

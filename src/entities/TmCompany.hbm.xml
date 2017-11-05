@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 4, 2017 6:49:42 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entities.TmCompany" table="TmCompany" schema="dbo" catalog="ProjectManagement" optimistic-lock="version">
+        <id name="compId" type="string">
+            <column name="CompId" length="40" />
+            <generator class="assigned" />
+        </id>
+        <property name="compName" type="string">
+            <column name="CompName" length="250" />
+        </property>
+        <property name="compAddress" type="string">
+            <column name="CompAddress" length="250" />
+        </property>
+        <property name="compPostCode" type="string">
+            <column name="CompPostCode" length="5" />
+        </property>
+        <property name="compCity" type="string">
+            <column name="CompCity" length="100" />
+        </property>
+        <property name="compCountry" type="string">
+            <column name="CompCountry" length="100" />
+        </property>
+        <property name="compPhone" type="string">
+            <column name="CompPhone" length="40" />
+        </property>
+        <property name="compFax" type="string">
+            <column name="CompFax" length="40" />
+        </property>
+        <property name="compEmail" type="string">
+            <column name="CompEmail" length="40" />
+        </property>
+        <property name="npwp" type="string">
+            <column name="NPWP" length="50" />
+        </property>
+        <property name="compFlag" type="string">
+            <column name="CompFlag" length="10" />
+        </property>
+        <property name="isExists" type="java.lang.Boolean">
+            <column name="IsExists" />
+        </property>
+        <property name="createdBy" type="java.lang.Integer">
+            <column name="CreatedBy" />
+        </property>
+        <property name="createdDate" type="timestamp">
+            <column name="CreatedDate" length="23" />
+        </property>
+        <set name="tmContacts" table="TmContact" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CompId" length="40" not-null="true" />
+            </key>
+            <one-to-many class="entities.TmContact" />
+        </set>
+    </class>
+</hibernate-mapping>

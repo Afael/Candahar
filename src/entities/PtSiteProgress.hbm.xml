@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 4, 2017 6:49:42 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entities.PtSiteProgress" table="PtSiteProgress" schema="dbo" catalog="ProjectManagement" optimistic-lock="version">
+        <id name="siteProgressId" type="string">
+            <column name="SiteProgressId" length="40" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="transactionHeader" class="entities.TransactionHeader" fetch="select">
+            <column name="MainFormId" length="40" not-null="true" />
+        </many-to-one>
+        <property name="installedDate" type="timestamp">
+            <column name="InstalledDate" length="23" />
+        </property>
+        <property name="installedBy" type="string">
+            <column name="InstalledBy" length="20" />
+        </property>
+        <property name="installedContactPhone" type="string">
+            <column name="InstalledContactPhone" length="40" />
+        </property>
+        <property name="installedLateReason" type="string">
+            <column name="InstalledLateReason" length="250" />
+        </property>
+        <property name="atpdate" type="timestamp">
+            <column name="ATPDate" length="23" />
+        </property>
+        <property name="atplateReason" type="string">
+            <column name="ATPLateReason" length="250" />
+        </property>
+        <property name="bautnumber" type="string">
+            <column name="BAUTNumber" length="200" />
+        </property>
+        <property name="bautdate" type="timestamp">
+            <column name="BAUTDate" length="23" />
+        </property>
+        <property name="bautsubmit" type="timestamp">
+            <column name="BAUTSubmit" length="23" />
+        </property>
+        <property name="siteStatusId" type="string">
+            <column name="SiteStatusId" length="40" />
+        </property>
+        <property name="isChangeRequest" type="java.lang.Boolean">
+            <column name="IsChangeRequest" />
+        </property>
+        <property name="changeApproved1" type="string">
+            <column name="ChangeApproved1" length="20" />
+        </property>
+        <property name="changeApproved2" type="string">
+            <column name="ChangeApproved2" length="20" />
+        </property>
+    </class>
+</hibernate-mapping>

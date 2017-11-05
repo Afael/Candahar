@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 4, 2017 6:49:42 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entities.SyCompany" table="SyCompany" schema="dbo" catalog="ProjectManagement" optimistic-lock="version">
+        <id name="companyId" type="string">
+            <column name="CompanyId" length="15" />
+            <generator class="assigned" />
+        </id>
+        <property name="parentId" type="string">
+            <column name="ParentId" length="15" />
+        </property>
+        <property name="companyName" type="string">
+            <column name="CompanyName" length="200" />
+        </property>
+        <property name="companyTagline" type="string">
+            <column name="CompanyTagline" length="200" />
+        </property>
+        <property name="companyAddress" type="string">
+            <column name="CompanyAddress" length="250" />
+        </property>
+        <property name="companyCountryId" type="string">
+            <column name="CompanyCountryId" length="6" />
+        </property>
+        <property name="companyStateId" type="string">
+            <column name="CompanyStateId" length="10" />
+        </property>
+        <property name="companyCityId" type="string">
+            <column name="CompanyCityId" length="16" />
+        </property>
+        <property name="companyZip" type="string">
+            <column name="CompanyZip" length="5" />
+        </property>
+        <property name="companyRegister" type="string">
+            <column name="CompanyRegister" length="40" />
+        </property>
+        <property name="companyTaxId" type="string">
+            <column name="CompanyTaxId" length="40" />
+        </property>
+        <property name="companyEmail" type="string">
+            <column name="CompanyEmail" length="100" />
+        </property>
+        <property name="companyWebsite" type="string">
+            <column name="CompanyWebsite" length="200" />
+        </property>
+        <property name="companyPhone" type="string">
+            <column name="CompanyPhone" length="200" />
+        </property>
+        <property name="companyFax" type="string">
+            <column name="CompanyFax" length="200" />
+        </property>
+        <property name="companyRemark" type="string">
+            <column name="CompanyRemark" length="40" />
+        </property>
+        <property name="companyAs" type="string">
+            <column name="CompanyAs" length="40" />
+        </property>
+        <property name="isDelete" type="java.lang.Boolean">
+            <column name="IsDelete" />
+        </property>
+        <property name="createdDate" type="timestamp">
+            <column name="CreatedDate" length="23" />
+        </property>
+        <property name="createdBy" type="string">
+            <column name="CreatedBy" length="20" />
+        </property>
+        <property name="modifiedDate" type="timestamp">
+            <column name="ModifiedDate" length="23" />
+        </property>
+        <property name="modifiedBy" type="string">
+            <column name="ModifiedBy" length="20" />
+        </property>
+        <set name="loMaterialInbounds" table="LoMaterialInbound" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CompanyId" length="15" />
+            </key>
+            <one-to-many class="entities.LoMaterialInbound" />
+        </set>
+    </class>
+</hibernate-mapping>

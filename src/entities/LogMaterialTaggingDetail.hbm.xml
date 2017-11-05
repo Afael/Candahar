@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 4, 2017 6:49:42 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entities.LogMaterialTaggingDetail" table="LogMaterialTaggingDetail" schema="dbo" catalog="ProjectManagement" optimistic-lock="version">
+        <id name="logMaterialTaggingDetailId" type="string">
+            <column name="LogMaterialTaggingDetailId" length="36" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="logInbound" class="entities.LogInbound" fetch="select">
+            <column name="MaterialSerialNumber" length="40" not-null="true" />
+        </many-to-one>
+        <many-to-one name="slboq" class="entities.Slboq" fetch="select">
+            <column name="SLBOQId" length="36" not-null="true" />
+        </many-to-one>
+        <property name="logTaggingId" type="string">
+            <column name="LogTaggingId" length="30" not-null="true" />
+        </property>
+        <property name="refDocumentId" type="string">
+            <column name="RefDocumentId" length="30" />
+        </property>
+        <property name="refDocumentType" type="string">
+            <column name="RefDocumentType" length="100" />
+        </property>
+        <property name="parentSerialNumber" type="string">
+            <column name="ParentSerialNumber" length="40" />
+        </property>
+        <property name="donorId" type="java.lang.Integer">
+            <column name="DonorId" />
+        </property>
+        <property name="tanggingDate" type="timestamp">
+            <column name="TanggingDate" length="23" />
+        </property>
+        <property name="sourceRegionId" type="string">
+            <column name="SourceRegionId" length="40" />
+        </property>
+        <property name="sourceAreaId" type="string">
+            <column name="SourceAreaId" length="40" />
+        </property>
+        <property name="sourceSiteId" type="string">
+            <column name="SourceSiteId" length="40" />
+        </property>
+        <property name="actualRegionId" type="string">
+            <column name="ActualRegionId" length="40" />
+        </property>
+        <property name="actualAreaId" type="string">
+            <column name="ActualAreaId" length="40" />
+        </property>
+        <property name="actualSiteId" type="string">
+            <column name="ActualSiteId" length="40" />
+        </property>
+        <property name="isExpired" type="java.lang.Boolean">
+            <column name="IsExpired" />
+        </property>
+        <property name="taggingStatusId" type="string">
+            <column name="TaggingStatusId" length="40" />
+        </property>
+        <property name="createdBy" type="java.lang.Integer">
+            <column name="CreatedBy" />
+        </property>
+        <property name="createdDate" type="timestamp">
+            <column name="CreatedDate" length="23" />
+        </property>
+    </class>
+</hibernate-mapping>

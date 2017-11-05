@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 4, 2017 6:49:42 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entities.ProSiteProgress" table="ProSiteProgress" schema="dbo" catalog="ProjectManagement" optimistic-lock="version">
+        <id name="siteProgressId" type="string">
+            <column name="SiteProgressId" length="40" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="slboq" class="entities.Slboq" fetch="select">
+            <column name="SLBOQId" length="36" not-null="true" />
+        </many-to-one>
+        <property name="projectTask" type="string">
+            <column name="ProjectTask" length="100" />
+        </property>
+        <property name="mainFormId" type="string">
+            <column name="MainFormId" length="40" />
+        </property>
+        <property name="lastUpdateDate" type="timestamp">
+            <column name="LastUpdateDate" length="23" />
+        </property>
+        <property name="lastUpdateBy" type="java.lang.Integer">
+            <column name="LastUpdateBy" />
+        </property>
+        <property name="isActive" type="java.lang.Boolean">
+            <column name="IsActive" />
+        </property>
+        <property name="isExists" type="java.lang.Boolean">
+            <column name="IsExists" />
+        </property>
+        <property name="projectStatusId" type="string">
+            <column name="ProjectStatusId" length="40" />
+        </property>
+        <set name="proSiteInstalleds" table="ProSiteInstalled" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SiteProgressId" length="40" not-null="true" />
+            </key>
+            <one-to-many class="entities.ProSiteInstalled" />
+        </set>
+    </class>
+</hibernate-mapping>

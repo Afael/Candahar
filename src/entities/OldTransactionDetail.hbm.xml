@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 4, 2017 6:49:42 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entities.OldTransactionDetail" table="Old_TransactionDetail" schema="dbo" catalog="ProjectManagement" optimistic-lock="version">
+        <id name="transactionDetailId" type="string">
+            <column name="TransactionDetailId" length="40" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="loMaterialGroup" class="entities.LoMaterialGroup" fetch="select">
+            <column name="MaterialGroupId" length="40" not-null="true" />
+        </many-to-one>
+        <many-to-one name="loMaterialType" class="entities.LoMaterialType" fetch="select">
+            <column name="MaterialTypeId" length="40" not-null="true" />
+        </many-to-one>
+        <many-to-one name="transactionHeader" class="entities.TransactionHeader" fetch="select">
+            <column name="MainFormId" length="40" not-null="true" />
+        </many-to-one>
+        <property name="materialQuantity" type="java.lang.Integer">
+            <column name="MaterialQuantity" />
+        </property>
+        <property name="isExists" type="java.lang.Boolean">
+            <column name="IsExists" />
+        </property>
+        <property name="createdBy" type="string">
+            <column name="CreatedBy" length="20" />
+        </property>
+        <property name="createdDate" type="timestamp">
+            <column name="CreatedDate" length="23" />
+        </property>
+        <property name="modifiedBy" type="string">
+            <column name="ModifiedBy" length="20" />
+        </property>
+        <property name="modifiedDate" type="timestamp">
+            <column name="ModifiedDate" length="23" />
+        </property>
+    </class>
+</hibernate-mapping>

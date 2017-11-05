@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 4, 2017 6:49:42 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entities.LogSupplier" table="LogSupplier" schema="dbo" catalog="ProjectManagement" optimistic-lock="version">
+        <id name="logSupplierId" type="string">
+            <column name="LogSupplierId" length="40" />
+            <generator class="assigned" />
+        </id>
+        <property name="productId" type="string">
+            <column name="ProductId" length="40" not-null="true" />
+        </property>
+        <property name="supplierName" type="string">
+            <column name="SupplierName" length="100" />
+        </property>
+        <property name="isExists" type="java.lang.Boolean">
+            <column name="IsExists" />
+        </property>
+        <property name="createdBy" type="java.lang.Integer">
+            <column name="CreatedBy" />
+        </property>
+        <property name="createdDate" type="timestamp">
+            <column name="CreatedDate" length="23" />
+        </property>
+        <set name="logMaterialGroups" table="LogMaterialGroup" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="LogSupplierId" length="40" not-null="true" />
+            </key>
+            <one-to-many class="entities.LogMaterialGroup" />
+        </set>
+        <set name="logInbounds" table="LogInbound" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="LogSupplierId" length="40" not-null="true" />
+            </key>
+            <one-to-many class="entities.LogInbound" />
+        </set>
+    </class>
+</hibernate-mapping>
