@@ -9,7 +9,6 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
-import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -86,8 +85,6 @@ public class FXMLMainController implements Initializable {
                 Node cityForm = FXMLLoader.load(getClass().getResource(fxmlFile));
                 Tab tab = new Tab(name, cityForm);
                 MainFormTab.getTabs().add(tab);
-                //Tab tab = FXMLLoader.load(this.getClass().getResource(fxmlFile));
-                //MainFormTab.getTabs().add(tab);
                 openTabs.put(fxmlFile, tab);
                 tab.setOnClosed(e -> openTabs.remove(fxmlFile));
             } catch (Exception e) {
