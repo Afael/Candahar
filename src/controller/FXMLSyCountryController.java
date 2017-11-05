@@ -6,16 +6,24 @@
 package controller;
 
 import com.sun.nio.sctp.Notification;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
 
@@ -48,10 +56,22 @@ public class FXMLSyCountryController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void btnAddDataAction(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/FXMLaddCountry.fxml"));
+        try {
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Add Country");
+            stage.setAlwaysOnTop(true);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLSyCountryController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         Notifications notification = Notifications.create()
                 .title("Add data complete")
                 .text("Data successfully added")
@@ -85,5 +105,5 @@ public class FXMLSyCountryController implements Initializable {
     @FXML
     private void btnNextAction(ActionEvent event) {
     }
-    
+
 }
