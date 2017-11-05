@@ -5,6 +5,7 @@
  */
 package controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -87,9 +88,7 @@ public class FXMLMainController implements Initializable {
                 MainFormTab.getTabs().add(tab);
                 openTabs.put(fxmlFile, tab);
                 tab.setOnClosed(e -> openTabs.remove(fxmlFile));
-            } catch (Exception e) {
-                System.out.println("Error " + e.getMessage());
-            }
+            } catch (IOException e) {}
 
         }
     }
