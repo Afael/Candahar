@@ -58,6 +58,7 @@ public class FXMLMainController implements Initializable {
     }
 
     private void selectListMenu() {
+        
         listMenuLocation.getSelectionModel()
                 .selectedItemProperty()
                 .addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
@@ -87,6 +88,7 @@ public class FXMLMainController implements Initializable {
                 Tab tab = new Tab(name, cityForm);
                 MainFormTab.getTabs().add(tab);
                 openTabs.put(fxmlFile, tab);
+                MainFormTab.getSelectionModel().select(openTabs.get(fxmlFile));
                 tab.setOnClosed(e -> openTabs.remove(fxmlFile));
             } catch (IOException e) {}
 
